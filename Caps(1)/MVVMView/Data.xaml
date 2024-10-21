@@ -1,0 +1,189 @@
+﻿<Page x:Class="Caps_1_.MVVMView.Data"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Caps_1_"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"            
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:mvvmviewmodel="clr-namespace:Caps_1_.MVVMViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1200"
+      Title="Data">
+
+    <Page.DataContext>
+        <mvvmviewmodel:DataVM/>
+    </Page.DataContext>
+
+    <Grid>
+        <Border CornerRadius="30" BorderThickness="0" Background="#FFEDEDFF">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="868*"/>
+                    <ColumnDefinition Width="247*"/>
+                    <ColumnDefinition Width="35"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+                <!-- Weekly Report -->
+                <Border Background="White" CornerRadius="30" Margin="0,0,15,0" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+
+                    <DockPanel>
+                        <Button DockPanel.Dock="Top" 
+                                HorizontalAlignment="Right" 
+                                Width="60" Height="40" 
+                                Margin="0 2 50 0" 
+                                Style="{StaticResource Go_List/Graph}" 
+                                PreviewMouseDown="Button_PreviewMouseDown"
+                                PreviewMouseUp="Button_PreviewMouseUp" 
+                                Click="Go_GraphList">
+
+                            <Button.Effect>
+                                <DropShadowEffect ShadowDepth="4" BlurRadius="10"/>
+                            </Button.Effect>
+
+                            <Grid x:Name="Separator_Grid">
+
+                                <Separator Style="{StaticResource Separator_List/Graph}" 
+                                           Width="30" 
+                                           Margin="20 0 0 0">
+                                    <Separator.LayoutTransform>
+                                        <RotateTransform Angle="90"/>
+                                    </Separator.LayoutTransform>
+                                </Separator>
+
+                                <Separator Style="{StaticResource Separator_List/Graph}" 
+                                       Width="30"
+                                       Margin="0 0 20 0" >
+                                    <Separator.LayoutTransform>
+                                        <RotateTransform Angle="90"/>
+                                    </Separator.LayoutTransform>
+                                </Separator>
+
+                                <Separator Style="{StaticResource Separator_List/Graph}"
+                                           Width="50"
+                                           Margin="0 12 0 0"/>
+
+
+                                <Separator Style="{StaticResource Separator_List/Graph}" 
+                                           Width="50" 
+                                           Margin="0 0 0 12"/>
+
+                            </Grid>
+
+                        </Button>
+
+                        <TextBlock TextWrapping="Wrap" 
+                               Text="Weekly Report" 
+                               Foreground="#FF939393" 
+                               FontSize="28" 
+                               Margin="20,0,0,15" 
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Top"
+                               DockPanel.Dock="Top"/>
+
+                        <Grid Margin="30 0 30 0">
+                            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Top" Margin="20 0 20 15">
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Day" Labels="{Binding Labels}">
+                                        <lvc:Axis.Separator>
+                                            <lvc:Separator Step="1" Stroke="{x:Null}"/>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Quantity" LabelFormatter="{Binding Values}"/>
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                            <Frame x:Name="List_On_Graph" NavigationUIVisibility="Hidden"/>
+                        </Grid>
+
+
+                    </DockPanel>
+                </Border>
+
+                <!-- Engine 1 -->
+                <Border Background="White" CornerRadius="30" Margin="0,0,0,7" Grid.Column="2" Grid.Row="1">
+                    <DockPanel>
+                        <TextBlock TextWrapping="Wrap" 
+                               Text="Store/Dispose" 
+                               Foreground="#FF57575F" 
+                               FontSize="24"
+                               Margin="20,20,0,0" 
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Top"
+                               DockPanel.Dock="Top"/>
+
+                        <Grid VerticalAlignment="Center" DockPanel.Dock="Right" Margin="0 0 20 0">
+                            <Canvas Width="230" Height="230" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Ellipse Width="200" Height="200" Stroke="LightGray" StrokeThickness="15" Canvas.Left="25" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Path x:Name="progressPath" Stroke="#FF56E9F4" StrokeThickness="22" Fill="Transparent" Canvas.Left="15" Canvas.Top="12">
+                                    <Path.Effect>
+                                        <DropShadowEffect ShadowDepth="4" Color="#FF56E9F4" Direction="-90" Opacity="0.5" BlurRadius="50" />
+                                    </Path.Effect>
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="100, 10" IsClosed="False">
+                                                <ArcSegment Point="{Binding ProgressPoint}" Size="90,90" IsLargeArc="{Binding IsLargeArc}" SweepDirection="Clockwise"/>
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding ProgressText}" FontSize="30" Foreground="Black" Margin="94,0,0,0"/>
+                        </Grid>
+
+                    </DockPanel>
+
+                </Border>
+
+
+
+                <!-- Engine 2 -->
+                <Border Background="White" CornerRadius="30" Margin="17,19,18,12" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <DockPanel>
+                        <TextBlock TextWrapping="Wrap" 
+                               Text="Release/Dispose" 
+                               Foreground="#FF57575F" 
+                               FontSize="24" 
+                               Margin="20,20,0,0" 
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Top"/>
+
+
+                        <Grid VerticalAlignment="Center" DockPanel.Dock="Right" Margin="0 0 20 0">
+                            <Canvas Width="230" Height="230" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-193,-2,0,0">
+                                <Ellipse Width="210" Height="211" Stroke="LightGray" StrokeThickness="15" Canvas.Top="12" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="15"/>
+                                <Path x:Name="progressPath2" Stroke="#FF56E9F4" StrokeThickness="22" Fill="Transparent" Canvas.Left="15" Canvas.Top="12">
+                                    <Path.Effect>
+                                        <DropShadowEffect ShadowDepth="4" Color="#FF56E9F4" Direction="-90" Opacity="0.5" BlurRadius="50" />
+                                    </Path.Effect>
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="100, 10" IsClosed="False">
+                                                <ArcSegment Point="{Binding ProgressPoint2}" Size="90,90" IsLargeArc="{Binding IsLargeArc2}" SweepDirection="Clockwise"/>
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding ProgressText2}" FontSize="30" Foreground="Black" Margin="-112,0,0,0"/>
+                        </Grid>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,247 @@
+﻿<Page x:Class="Caps_1_.MVVMView.State"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:local="clr-namespace:Caps_1_"
+      xmlns:mvvmviewmodel="clr-namespace:Caps_1_.MVVMViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="State">
+
+    <Page.DataContext>
+        <mvvmviewmodel:StateVM />
+    </Page.DataContext>
+
+    <Grid>
+        <Border CornerRadius="30" BorderThickness="0" Background="#FFEDEDFF">
+
+            <Grid>
+                <!-- Grid Background -->
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="35"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Column="1" Grid.Row="1" 
+                            Grid.RowSpan="1" 
+                            Background="White" 
+                            CornerRadius="30 0 0 0"/>
+
+                    <Border Grid.Column="2" Grid.Row="1" 
+                            Grid.RowSpan="1" 
+                            Background="White" 
+                            CornerRadius="0 30 0 0"/>
+
+                    <Border Grid.Column="2" Grid.Row="2"                             
+                            Background="White" 
+                            CornerRadius="0 0 30 0"/>
+
+                    <Border Grid.Column="1" Grid.Row="2" 
+                            Background="White" 
+                            CornerRadius="0 0 0 30"/>
+
+                    <Separator Grid.Column="2" Grid.Row="1" 
+                               HorizontalAlignment="Left" Margin="0,50,0,40" Foreground="{x:Null}" Background="Black" Grid.ColumnSpan="2">
+                        <Separator.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </Separator.LayoutTransform>
+                    </Separator>
+
+                </Grid>
+
+                <!-- Grid Controls -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="35"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Left Site -->
+                    <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True">
+
+                        <TextBlock Text="Cylinder Operating Status" 
+                                   VerticalAlignment="Top" 
+                                   DockPanel.Dock="Top" 
+                                   FontSize="26" 
+                                   FontWeight="Bold" 
+                                   Foreground="#FF939393" 
+                                   HorizontalAlignment="Center" Margin="0 30 0 30"/>
+
+                        <!-- Cylinder ON Off Grid -->
+                        <Grid Margin="0 0 0 0" Height="500" Width="700">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="0" Grid.Row="0">
+                                <Ellipse x:Name="cylinder1" Fill="{Binding CONV_1}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Conveyor_1" FontSize="20" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="2" Grid.Row="0">
+                                <Ellipse x:Name="cylinder2" Fill="{Binding CONV_2}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Conveyor_2" FontSize="20" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="4" Grid.Row="0">
+                                <Ellipse x:Name="stopper1" Fill="{Binding STOPPER_1}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Stopper_1" FontSize="20" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="6" Grid.Row="0">
+                                <Ellipse x:Name="stopper2" Fill="{Binding STOPPER_2}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Stopper_2" FontSize="20" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="0" Grid.Row="2">
+                                <Ellipse x:Name="out_Cylinder" Fill="{Binding OUT_CYL}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Out_Cylinder" FontSize="20" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="2" Grid.Row="2">
+                                <Ellipse x:Name="dispose_Cylinder" Fill="{Binding DISPOSE_CYL}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Dispose_Cylinder" FontSize="20" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="0" Grid.Row="4">
+                                <Ellipse x:Name="gantry_arm" Fill="{Binding GAN_ARM}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Gantry_arm" FontSize="15" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="2" Grid.Row="4">
+                                <Ellipse x:Name="gantry_arm_rotary" Fill="{Binding GAN_ARM_ROT}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Gantry_arm_rotray" FontSize="15" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+
+                            <StackPanel VerticalAlignment="Center" Grid.Column="4" Grid.Row="4">
+                                <Ellipse x:Name="gantry_arm_gripper" Fill="{Binding GAN_ARM_GIP}" Width="50" Height="50" Margin="0,10,0,0" />
+                                <TextBlock HorizontalAlignment="Center" Text="Gantry_arm_gripper" FontSize="15" Foreground="#FF07077E" Margin="0 6 0 0" FontWeight="Bold"/>
+                            </StackPanel>
+
+
+
+                            
+
+                        </Grid>
+
+                    </DockPanel>
+
+                    <!-- Right Site -->
+                    <DockPanel Grid.Column="2" Grid.Row="1" LastChildFill="True">
+                        <TextBlock Text="Servo Motor" 
+                                   VerticalAlignment="Top" 
+                                   DockPanel.Dock="Top" 
+                                   FontSize="26" 
+                                   FontWeight="Bold" 
+                                   Foreground="#FF939393" 
+                                   HorizontalAlignment="Center" Margin="0 30 0 20"/>
+
+                        <Grid Margin="0 0 20 0" Height="200" Width="300">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="0*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="109">
+                                <Border x:Name="S_Motor1" CornerRadius="10" BorderThickness="1" Background="#FFE6E6F0" Height="50" Width="60">
+                                    <TextBox BorderBrush="{x:Null}" 
+                                             Background="{x:Null}" 
+                                             Foreground="#FF141450" 
+                                             Text="{Binding X_AXIS_MOTOR}" 
+                                             VerticalAlignment="Center" 
+                                             HorizontalAlignment="Center"
+                                             Width="200" Height="50" FontSize="15"
+                                             VerticalContentAlignment="Center" 
+                                             HorizontalContentAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="X_axis&#10;Motor" FontSize="20" Foreground="#FFE6E6F0" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="3" Height="110" Margin="10,0,10,0">
+                                <Border x:Name="S_Motor2" CornerRadius="10" BorderThickness="1" Background="#FFE6E6F0" Height="50" Width="60">
+                                    <TextBox BorderBrush="{x:Null}" 
+                                             Background="{x:Null}" 
+                                             Foreground="#FF141450" 
+                                             VerticalAlignment="Center" 
+                                             HorizontalAlignment="Center"
+                                             Text="{Binding Y_AXIS_MOTOR}" 
+                                             Width="200" Height="50" FontSize="15"
+                                             VerticalContentAlignment="Center" 
+                                             HorizontalContentAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Y_axis&#10;Motor" FontSize="20" Foreground="#FFE6E6F0" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                            </StackPanel>
+
+
+
+                        </Grid>
+
+                    </DockPanel>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+        <Frame x:Name="Clicked_StateFrame" 
+       NavigationUIVisibility="Hidden"
+       Margin="897,-100,-897,0"/>
+        <!-- 화면 위로 이동 -->
+
+    </Grid>
+
+</Page>

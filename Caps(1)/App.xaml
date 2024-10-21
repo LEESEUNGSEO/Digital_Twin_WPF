@@ -1,0 +1,23 @@
+﻿<Application x:Class="Caps_1_.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:local="clr-namespace:Caps_1_"
+             StartupUri="MVVMView/MainWindow.xaml">
+    
+    <Application.Resources>
+        
+        <!-- 리소스 사전을 여러개 쓰지 못해 여러개를 병합 -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/UI_Colors.xaml"/>
+                <ResourceDictionary Source="/Styles/Btn_style.xaml"/>
+                <ResourceDictionary Source="/Styles/Calender_style.xaml"/>
+                <ResourceDictionary Source="/Styles/Combo_box.xaml"/>
+                <ResourceDictionary Source="/Styles/DataGrid.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+       
+
+    </Application.Resources>
+</Application>

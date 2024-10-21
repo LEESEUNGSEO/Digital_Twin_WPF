@@ -1,0 +1,71 @@
+﻿<Page x:Class="Caps_1_.MVVMView.Log"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mvvmviewmodel="clr-namespace:Caps_1_.MVVMViewModel"
+      mc:Ignorable="d" 
+      
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Log">
+
+    <Page.DataContext>
+        <mvvmviewmodel:LogVM/>
+    </Page.DataContext>
+
+    <Grid>
+        <Border CornerRadius="30" BorderThickness="1" Background="#FFEDEDFF">
+
+            <Grid>
+                <!-- Grid Background -->
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="35"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Background="White" Grid.Column="1" Grid.Row="1" CornerRadius="30">
+
+                        <DockPanel Margin="20">
+                            
+                            <TextBlock TextWrapping="Wrap" 
+                                       Text="LOG LIST" 
+                                       Foreground="#FF939393" 
+                                       FontSize="30" 
+                                       Margin="0,20,0,20" 
+                                       FontWeight="Bold" 
+                                       HorizontalAlignment="Center"                                        
+                                       DockPanel.Dock="Top"/>
+                            
+                            <DataGrid ItemsSource="{Binding LogItems}" 
+                                      Style="{StaticResource SettingPage_List}">
+                            
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="로그타입" Binding="{Binding LogType}" Width="70" />
+                                        <DataGridTextColumn Header="로그내용" Binding="{Binding LogContent}" Width="*"/>
+                                        <DataGridTextColumn Header="위치/상태" Binding="{Binding TargetLocation}" Width="*" />
+                                        <DataGridTextColumn Header="시간" Binding="{Binding LogTime}" Width="*"/>
+                                        <DataGridTextColumn Header="비고" Binding="{Binding Notes}" Width="*"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                        </DockPanel>
+
+                    </Border>
+                    
+                </Grid>
+                
+            </Grid>
+
+        </Border>
+        
+    </Grid>
+</Page>

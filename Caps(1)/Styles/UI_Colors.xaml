@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- out_grid_background -->
+    <Color x:Key="out_grid1">#E6E6F0</Color>
+    <Color x:Key="out_grid2">#FFFEFDFF</Color>
+    <Color x:Key="out_grid3">#FFCECEFA</Color>
+    <Color x:Key="out_grid4">#FFCACAF7</Color>
+    <Color x:Key="out_grid5">#FFF4F1F9</Color>
+
+    <!-- lean/border -->
+    <Color x:Key="border1">white</Color>
+    <Color x:Key="border2">#FFF7F7F7</Color>
+    <Color x:Key="border3">#FFE2E2FD</Color>
+    <Color x:Key="border4">#FFE0E0FF</Color>
+    <Color x:Key="border5">#FFE0E0FD</Color>
+    <Color x:Key="border6">#FFE7E7FF</Color>
+
+    <!-- font colors -->
+    <SolidColorBrush x:Key="gray" Color="gray"/>
+    <SolidColorBrush x:Key="darkblue" Color="#FF141450"/>
+    <SolidColorBrush x:Key="darkpurple" Color="#5f00ff"/>
+    <SolidColorBrush x:Key="white" Color="White"/>
+
+    <!-- Color Palette -->
+    <SolidColorBrush x:Key="T_ag" Color="#B5B2FF"/>
+    <SolidColorBrush x:Key="In_Out_Note" Color="#C7C6FF"/>
+    <SolidColorBrush x:Key="Add_schedule_Border" Color="#FFB3AEFF"/>
+
+</ResourceDictionary>

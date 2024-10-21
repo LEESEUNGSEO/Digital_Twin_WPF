@@ -1,0 +1,549 @@
+﻿<Window x:Class="Caps_1_.MVVMView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:mvvmviewmodel="clr-namespace:Caps_1_.MVVMViewModel"
+        WindowStyle="None"
+        WindowState="Maximized"
+        Title="MainWindow" Height="750" Width="1200">
+    <Window.DataContext>
+        <mvvmviewmodel:MainWindowVM />
+    </Window.DataContext>
+    
+    
+    <Grid x:Name="out_gird">
+                
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0.7,0.6">
+                <GradientStop Color="{StaticResource out_grid1}" Offset="0.0"/>
+                <GradientStop Color="{StaticResource out_grid2}" Offset="0.25"/>
+                <GradientStop Color="{StaticResource out_grid3}" Offset="0.45"/>
+                <GradientStop Color="{StaticResource out_grid4}" Offset="0.70"/>
+                <GradientStop Color="{StaticResource out_grid5}" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+                
+        <!-- shadow border -->
+        <Border x:Name="Shadow_Border" 
+                CornerRadius="35" 
+                Padding="1" 
+                Margin="40,60,40,60" 
+                RenderTransformOrigin="0.5,0.5" 
+                BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1" BlurRadius="15"/>
+            </Border.Effect>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.3,1">
+                    <GradientStop Color="white" Offset="0"/>
+                    <GradientStop Color="white" Offset="0.4"/>
+                    <GradientStop Color="#FFE2E2FD" Offset="0.6"/>
+                    <GradientStop Color="#FFE0E0FF" Offset="0.8"/>
+                    <GradientStop Color="#FFE0E0FD" Offset="0.9"/>
+                    <GradientStop Color="#FFE7E7FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <!-- flat white border -->
+        <Border CornerRadius="35" 
+                Padding="1" 
+                Margin="40,60,40,60"
+                x:Name="Flat_Border">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1" BlurRadius="15"/>
+            </Border.Effect>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.3,1">
+                    <GradientStop Color="{StaticResource border1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource border2}" Offset="0.4"/>
+                    <GradientStop Color="{StaticResource border3}" Offset="0.6"/>
+                    <GradientStop Color="{StaticResource border4}" Offset="0.8"/>
+                    <GradientStop Color="{StaticResource border5}" Offset="0.9"/>
+                    <GradientStop Color="{StaticResource border6}" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+           
+            <!-- white grid section -->
+            <Grid x:Name="white_grid">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+               
+                <!-- Left_s_panel -->
+                <StackPanel x:Name="Left_panel" 
+                            Grid.Row="2" 
+                            Grid.Column="1" 
+                            Margin="0,25,0,25" 
+                            Grid.RowSpan="2">
+
+                    <!-- Home_Button -->
+                    <RadioButton x:Name="HomeBtn"
+                                 Style="{StaticResource menuBtn}"
+                                 Tag="{StaticResource white}"
+                                 Click="Home_click1"
+                                 IsChecked="True">
+
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Style="{StaticResource menuBtnIcon}"
+                                          Icon="HouseChimney"/>
+                            <TextBlock Text="Home" 
+                                       Style="{StaticResource menuBtnText}"/>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                    <!-- Setting_Button -->
+                    <RadioButton x:Name="SettingBtn"
+                                 Style="{StaticResource menuBtn}"
+                                 Tag="{StaticResource white}"
+                                 Click="Setting_click1">
+
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Style="{StaticResource menuBtnIcon}"
+                                          Icon="CalendarCheck" Margin="20,0,30,0"/>
+                            <TextBlock Text="Setting" 
+                                       Style="{StaticResource menuBtnText}"/>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                    <!-- Data_Button -->
+                    <RadioButton x:Name="DataBtn"
+                                 Style="{StaticResource menuBtn}"
+                                 Tag="{StaticResource white}"
+                                 Click="Data_click1">
+
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Style="{StaticResource menuBtnIcon}"
+                                          Icon="ChartColumn" Margin="0,0,30,0"/>
+                            <TextBlock Text="Data" 
+                                       Style="{StaticResource menuBtnText}"/>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                    <!-- State_Button -->
+                    <RadioButton x:Name="StateBtn"
+                                 Style="{StaticResource menuBtn}"
+                                 Tag="{StaticResource white}"
+                                 Click="State_click1">
+
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Style="{StaticResource menuBtnIcon}"
+                                          Icon="AddressCard"/>
+                            <TextBlock Text="State" 
+                                       Style="{StaticResource menuBtnText}"/>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                    <!-- Log_Button -->
+                    <RadioButton x:Name="LogBtn"
+                                 Style="{StaticResource menuBtn}"
+                                 Tag="{StaticResource white}"
+                                 Click="Log_click1">
+
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Style="{StaticResource menuBtnIcon}"
+                                          Icon="ListCheck" Margin="0,0,30,0"/>
+                            <TextBlock Text="Log" 
+                                       Style="{StaticResource menuBtnText}"/>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                </StackPanel>
+
+                <!-- purple border -->
+                <Border x:Name="purple_Left_border" 
+                        CornerRadius="30 0 0 30" 
+                        Grid.Column="2" 
+                        Grid.Row="2" 
+                        Background="#FFEDEDFF" 
+                        Margin="30,0,0,0" 
+                        Grid.ColumnSpan="1" 
+                        Grid.RowSpan="1">
+
+                    <DockPanel LastChildFill="True">
+                                            
+                        <!-- button/mstd border -->
+                        <Border x:Name="Button_border" 
+                                CornerRadius="30" 
+                                BorderThickness="1" 
+                                Background="White" 
+                                Margin="50,15,0,25" 
+                                DockPanel.Dock="Bottom" 
+                                Height="170">
+
+                            <DockPanel LastChildFill="False">
+                                
+                                <Grid Margin="25,20,30,0" DockPanel.Dock="Left">
+                                    <DockPanel x:Name="Button_dockpanel" LastChildFill="True">
+
+                                        <TextBlock Text="State" 
+                                               FontSize="24" 
+                                               FontWeight="Bold" 
+                                               Foreground="#FF939393"
+                                               VerticalAlignment="Top" 
+                                               DockPanel.Dock="Top" />
+
+                                        <StackPanel x:Name="CYL_S1" VerticalAlignment="Center">
+                                            <Ellipse x:Name="cylinder1" Fill="{Binding CYC1}" Width="35" Height="35" Margin="0,10,0,0" />
+                                            <TextBlock Text="CYL1" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="CYL_S2" VerticalAlignment="Center" Margin="10,0,0,0">
+                                            <Ellipse x:Name="cylinder2" Fill="{Binding CYC2}" Width="35" Height="35" Margin="0,10,0,0"/>
+                                            <TextBlock Text="CYL2" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="CYL_S3" VerticalAlignment="Center" Margin="10,0,0,0">
+                                            <Ellipse x:Name="cylinder3" Fill="{Binding CYC3}" Width="35" Height="35" Margin="0,10,0,0"/>
+                                            <TextBlock Text="CYL3" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="CYL_S4" VerticalAlignment="Center" Margin="10,0,0,0">
+                                            <Ellipse x:Name="cylinder4" Fill="{Binding CYC4}" Width="35" Height="35" Margin="0,10,0,0"/>
+                                            <TextBlock Text="CYL3" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="CYL_S5" VerticalAlignment="Center" Margin="10,0,0,0">
+                                            <Ellipse x:Name="cylinder5" Fill="{Binding CYC5}" Width="35" Height="35" Margin="0,10,0,0"/>
+                                            <TextBlock Text="CYL5" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="CYL_S6" VerticalAlignment="Center" Margin="10,0,0,0">
+                                            <Ellipse x:Name="cylinder6" Fill="{Binding CYC6}" Width="35" Height="35" Margin="0,10,0,0"/>
+                                            <TextBlock Text="CYL6" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="CYL_S7" VerticalAlignment="Center" Margin="10,0,0,0">
+                                            <Ellipse x:Name="cylinder7" Fill="{Binding CYC7}" Width="35" Height="35" Margin="0,10,0,0"/>
+                                            <TextBlock Text="CYL7" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="CYL_S8" VerticalAlignment="Center" Margin="10,0,0,0">
+                                            <Ellipse x:Name="cylinder8" Fill="{Binding CYC8}" Width="35" Height="35" Margin="0,10,0,0"/>
+                                            <TextBlock Text="CYL8" Foreground="#FFE6E6F0" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                     
+
+                                    </DockPanel>
+                                </Grid>
+                                
+                                <!-- Mensurationd -->
+                                <Grid Margin="0,20,20,0" DockPanel.Dock="left">
+                                    <DockPanel x:Name="Mstd_Dockpanel" LastChildFill="False">
+
+                                        <TextBlock Text="XY axis Motor" 
+                                               VerticalAlignment="Top" 
+                                               DockPanel.Dock="Top" 
+                                               FontSize="24" 
+                                               FontWeight="Bold" 
+                                               Foreground="#FF939393" 
+                                               HorizontalAlignment="Left"/>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,0,0" VerticalAlignment="Center">
+                                            <Border x:Name="mstd_b1" CornerRadius="10" BorderThickness="1" Background="#FFE6E6F0">
+                                                <TextBox BorderBrush="{x:Null}" 
+                                                     Background="{x:Null}" 
+                                                     Foreground="#FF141450" 
+                                                     VerticalAlignment="Center" 
+                                                     HorizontalAlignment="Center"
+                                                     Text="{Binding Mstd1}" 
+                                                     Width="50" Height="35" FontSize="15"
+                                                     VerticalContentAlignment="Center" 
+                                                     HorizontalContentAlignment="Center"/>
+                                            </Border>
+                                            <TextBlock Text="CYL1" Foreground="#FFE6E6F0" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                                            <Border x:Name="mstd_b2" CornerRadius="10" BorderThickness="1" Background="#FFE6E6F0">
+                                                <TextBox BorderBrush="{x:Null}" 
+                                                     Background="{x:Null}" 
+                                                     Foreground="#FF141450" 
+                                                     VerticalAlignment="Center" 
+                                                     HorizontalAlignment="Center"
+                                                     Text="{Binding Mstd2}" 
+                                                     Width="50" Height="35" FontSize="15"
+                                                     HorizontalContentAlignment="Center" 
+                                                     VerticalContentAlignment="Center"/>
+                                            </Border>
+                                            <TextBlock Text="CYL2" Foreground="#FFE6E6F0" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                                        </StackPanel>
+
+                                      
+
+                                    </DockPanel>
+                                </Grid>
+                                
+                            </DockPanel>
+                        </Border>
+
+                        <!-- DashBoard -->
+                        <Border x:Name="DashBoard_border"                                 
+        CornerRadius="30" 
+        BorderThickness="0" 
+        Margin="50,25,0,0" 
+        Background="White">
+
+                            <Grid>
+                                <!-- StackPanel 역할을 하는 부분 -->
+                                <StackPanel>
+                                    <TextBlock TextWrapping="Wrap" 
+                                       Text="DashBoard" 
+                                       Foreground="#FF939393" 
+                                       FontSize="28" 
+                                       Margin="20,30,0,0" 
+                                       FontWeight="Bold" 
+                                       HorizontalAlignment="Left"/>
+
+                                    <Image Source="pack://application:,,,/Resources/digitaltwinDashboard.png" Height="450" Margin="60,20,40,0" Stretch="Fill"/>
+                                </StackPanel>
+
+                                <!-- 우측 상단에 배치될 버튼 -->
+                                <Button Name="Start_button" 
+                                    Content="Auto Start" 
+                                    Style="{StaticResource fruit_btn}" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Top" 
+                                    Margin="0,10,100,0"
+                                    Click="AutoStart_click1"/>
+                                <Button Name="Stop_button" 
+                                     Content="Auto Stop" 
+                                     Style="{StaticResource fruit_btn}" 
+                                     HorizontalAlignment="Right" 
+                                     VerticalAlignment="Top" 
+                                     Margin="0,10,10,0"
+                                     Click="AutoStop_click1"/>               
+
+                            </Grid>
+                        </Border>
+
+                    </DockPanel>
+                    
+                </Border>
+
+                <Grid Grid.Column="3" 
+                      Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.2*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border x:Name="purple_Right1_border"
+                            CornerRadius="0 30 0 0" 
+                            Background="#FFEDEDFF"
+                            Padding="15 0 35 0">
+           
+                        <Border Background="White" 
+                                CornerRadius="30"
+                                Margin="0,25,0,25">
+
+                            <!-- log border -->
+                           
+                                <DockPanel>
+
+                                    <TextBlock TextWrapping="Wrap" 
+                                               Text="Log" 
+                                               Foreground="#FF939393" 
+                                               DockPanel.Dock="Top" 
+                                               FontSize="24" 
+                                               FontWeight="Bold" 
+                                               Margin="20,30,0,0"/>
+
+                                    <Button Content="VIEW ALL" 
+                                            x:Name="ViewLog"
+                                            Background="{x:Null}" 
+                                            BorderBrush="{x:Null}" 
+                                            Foreground="Gray" 
+                                            DockPanel.Dock="Top" 
+                                            FontSize="16" 
+                                            FontWeight="Bold" 
+                                            Margin="0,0,10,0" 
+                                            HorizontalAlignment="Right"
+                                            Click="ViewLogButton_Click"/>
+
+                                    <TextBlock TextWrapping="Wrap" 
+                                               Text="TODAY" 
+                                               Foreground="Gray" 
+                                               FontSize="16" 
+                                               FontWeight="Bold" 
+                                               DockPanel.Dock="Top" 
+                                               Margin="20,10,0,0"/>
+
+                                <ListBox ItemsSource="{Binding LogItems}" Margin="10">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding LogType}" FontWeight="Bold" FontSize="18"/>
+                                                    <TextBlock Text="{Binding TargetLocation}" FontSize="13"/>
+                                                    <TextBlock Text="{Binding LogTime}" FontSize="13"/>
+                                                    <TextBlock Text="{Binding LogContent}" FontSize="13"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                            </DockPanel>
+
+                             </Border>
+
+                </Border>
+
+                    <Border x:Name="purple_Right2_border"
+                            CornerRadius="0 0 30 0" 
+                            Background="#FFEDEDFF"
+                            Padding="15 0 35 0" 
+                            Grid.Row="1">
+
+                        <Border Background="White" 
+                                CornerRadius="30"
+                                Margin="0,0,0,25">
+
+                            <StackPanel Margin="20,30,20,20">
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                    <TextBlock TextWrapping="Wrap" 
+                                    Text="Vision" 
+                                    Foreground="#FF939393" 
+                                    FontSize="24" 
+                                    FontWeight="Bold" 
+                                    Margin="0,0,10,0"/>
+
+                                    <TextBox x:Name="ResultTextBox" 
+                                    HorizontalAlignment="Center" 
+                                    Width="250" 
+                                    Height="35" 
+                                    Text="추론 결과"
+                                    FontSize="10"/>
+                                </StackPanel>
+                                <Image x:Name="CamImage" 
+                                        HorizontalAlignment="Center" 
+                                        VerticalAlignment="Top" 
+                                        Width="250" 
+                                        Height="250" 
+                                        Margin="0,0,0,20"/>
+                            </StackPanel>
+
+                        </Border>
+                        
+                    </Border>
+
+                </Grid>
+                
+                <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" Margin="30,0,0,0" />
+
+                <TextBlock x:Name="Team_Name" 
+                           TextWrapping="Wrap" 
+                           Text="MSC" 
+                           FontSize="28" 
+                           FontWeight="Bold" 
+                           Foreground="Gray" 
+                           Padding="70,20,0,0" 
+                           Grid.Column="1" 
+                           Margin="0,0,0,0" 
+                           Grid.Row="1"  
+                           FontFamily="Segoe UI"/>
+                <TextBlock x:Name="Team_Name_detail" 
+                           TextWrapping="Wrap" 
+                           Text="Machine system control" 
+                           FontSize="14" 
+                           FontWeight="Bold" 
+                           Foreground="Gray" 
+                           Padding="30,0,0,10" 
+                           Grid.Column="1" 
+                           Grid.Row="1" 
+                           VerticalAlignment="Bottom"/>
+
+ 
+                   
+                
+                <Border x:Name="Twin_border" 
+                        CornerRadius="30" 
+                        BorderThickness="0" 
+                        Background="White" 
+                        Margin="0,0,10,0" 
+                        Grid.Column="3" 
+                        Grid.Row="1" 
+                        Height="50" HorizontalAlignment="Right">
+
+                    <StackPanel Orientation="Horizontal" >
+                        <Grid Width="70" Margin="20,0,0,0">
+                            <TextBlock TextWrapping="Wrap" Text="{Binding ToggleModeText}" Foreground="Gray" Width="70" Height="40" FontSize="10" Padding="5,4,0,0"/>
+                        </Grid>
+
+                        <Border x:Name="Mode_changeBtn" BorderBrush="{x:Null}" Background="#FF7B7BE8" Width="80" Height="30" CornerRadius="15">
+
+                            <ToggleButton x:Name="Mode_ToggleBtn"
+                                                  Style="{StaticResource Mode_Change_Button}"
+                                                  HorizontalAlignment="Left" 
+                                                  VerticalAlignment="Center" 
+                                                  IsChecked="{Binding IsToggleChecked, Mode=TwoWay}"
+                                                  Checked="Mode_ToggleBtn_Checked" 
+                                                  Unchecked="Mode_ToggleBtn_Unchecked">
+                            </ToggleButton>
+
+                        </Border>
+
+                        <TextBlock x:Name="k_Time" VerticalAlignment="Center" FontWeight="Bold" Foreground="Gray" Text="00:00" Margin="10,0,10,0"  />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="155"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- search bar -->
+            <Border x:Name="search_bar_border"
+                     CornerRadius="20" 
+                     Background="White" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Bottom"
+                     Margin="50 0 0 0">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Style="{StaticResource menuBtnIcon}"
+                          Icon="MagnifyingGlass" Foreground="Gray" Margin="20 0 10 0"/>
+                    <TextBox x:Name="search_bar"
+                              Height="30"
+                              Margin="10,10,10,10"
+                              VerticalAlignment="Center"
+                              Background="#99FFFFFF"
+                              BorderBrush="White"
+                              Width="450" 
+                              FontSize="20"/>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</Window>

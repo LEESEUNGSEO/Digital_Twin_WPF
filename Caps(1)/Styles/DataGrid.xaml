@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Data Page's List Page -->
+    
+        <!-- List -->
+    <Style x:Key="DataPage's_List" TargetType="{x:Type DataGrid}">
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+
+        
+
+    </Style>
+    
+    <!-- Setting Page's List -->
+    <Style x:Key="SettingPage_List" TargetType="{x:Type DataGrid}">
+        <Setter Property="Background" Value="#FFF0F0F0"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="FrozenColumnCount" Value="1"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="#DCDCDC"/>
+        <Setter Property="VerticalGridLinesBrush" Value="#DCDCDC"/>
+        <Setter Property="AlternatingRowBackground" Value="#FFE2E2FA"/>
+        <Setter Property="RowHeight" Value="25"/>
+
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#8F8AFF"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="Height" Value="40"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+</ResourceDictionary>
